@@ -8,7 +8,7 @@ Interactive CLI helper for maintaining the **Fraud Tactics‑Techniques‑Proced
 
 | Capability | Description |
 |------------|-------------|
-| **Auto‑load / create** | Looks for `fraudneuron.json` in the current directory and builds a fresh skeleton if missing or corrupted. |
+| **Auto‑load / create** | Looks for `dataset.json` in the current directory and builds a fresh skeleton if missing or corrupted. |
 | **Browse hierarchy** | Pretty‑prints the tree so you can visualise Tactics, Techniques, and Procedures. |
 | **Add nodes** | Insert new Tactics (`T*`), Techniques (`TQ*`), or Procedures (`P*`) anywhere in the tree. |
 | **Parent validation** | If you reference a parent ID that doesn’t exist, the tool offers to create it on‑the‑fly. |
@@ -32,14 +32,14 @@ No third‑party packages required—everything uses the standard library.
 $ git clone https://github.com/your‑org/your‑repo.git
 $ cd your‑repo
 
-# 2) Run the updater (creates fraudneuron.json if missing)
-$ python fraud_framework_updater.py
+# 2) Run the updater (creates dataset.json if missing)
+$ python UpdateFraudNeuron.py
 ```
 
 > **Tip**  You can pass a different JSON file as the first argument:
 >
 > ```bash
-> $ python fraud_framework_updater.py my_other_framework.json
+> $ python UpdateFraudNeuron.py my_other_framework.json
 > ```
 
 ---
@@ -99,8 +99,8 @@ Discard changes.
 ## 🗂 File Structure
 
 ```
-├─ fraud_framework_updater.py   # the CLI tool
-└─ fraudneuron.json             # the framework (auto‑generated)
+├─ UpdateFraudNeuron.py   # the CLI tool
+└─ dataset.json             # the framework 
 ```
 
 ---
@@ -108,7 +108,7 @@ Discard changes.
 ## 🔄 Example Session
 
 ```text
-$ python fraud_framework_updater.py
+$ python UpdateFraudNeuron.py
 
 ==========================
  Fraud Framework Updater
@@ -130,17 +130,3 @@ Enter details for new entry under T2000:
 
 ✅  Added TQ2300 under T2000
 ```
-
----
-
-## 🤝 Contributing
-
-1. Fork the repo & create a feature branch.
-2. Keep code **PEP‑8 compliant** and document new functions.
-3. Open a PR—maintainers will review.
-
----
-
-## 📄 License
-
-This project is licensed under the **Apache 2.0 License**—see `LICENSE` for details.
